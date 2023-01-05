@@ -4,8 +4,8 @@ It's a data quality tool that is used to validate, document and profile your dat
 #### Components
 The intro to the GE documentation provides us with 5 key components expectations, validation, documentation, profiling, and checkpoints. 
 1. Expectations already touched on briefly above. - (Suite, Store) 
-  * Wouldn't really be a great tool if we could only had one expectation for our data, instead we apply a suite of them known as a suite. 
-  * These are later put into a store, that are examided by profilers and checkpoints. 
+   ** Wouldn't really be a great tool if we could only had one expectation for our data, instead we apply a suite of them known as a suite. 
+   ** These are later put into a store, that are examided by profilers and checkpoints. 
 2. Validation
 
 3. Document
