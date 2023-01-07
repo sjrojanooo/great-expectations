@@ -15,9 +15,3 @@ The intro to the Great Expectations documentation provides us with 5 key compone
 5. Checkpoint
    - Not a checkpoint for the read me... (hah..hah..) This component actually produces validation results and can also be tuned to result in an optional task to be performed. Think of it almost like a try and except, you can catch the exception and direct the next level of operations. This can be used to send an automated email, slack, or customer notification to your team members. 
 
-#### Let's get started 
-1. Build the docker image, and tag it great-expectations
-   - `docker build -t great-expectations .` 
-   - lets run it in detached mode, only having the image run in the background. 
-   - `docker -d great-expectations`
-
