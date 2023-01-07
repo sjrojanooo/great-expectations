@@ -13,7 +13,20 @@ RUN wget https://archive.apache.org/dist/spark/spark-3.0.1/spark-3.0.1-bin-hadoo
     wget https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/3.2.0/hadoop-aws-3.2.0.jar && \
     mv hadoop-aws-3.2.0.jar /spark/jars
 
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
+    unzip awscliv2.zip && \
+    ./aws/install
+
 WORKDIR app
 COPY . /app
 
-RUN pip3 install -r requirements.txt
+RUN pip3 install -U setuptools && \
+    pip3 install markupsafe==1.1.1 cryptography==3.3.2 cython==0.29.21 numpy==1.18.5 && \
+    pip3 install -r requirements.txt
+
+ENV VIRTUAL_ENV=/opt/venv
+RUN python3 -m venv $VIRTUAL_ENV
+ENV PATH=”$VIRTUAL_ENV/bin:$PATH”
+
+# install great_expectations 
+RUN pip install great_expectations
