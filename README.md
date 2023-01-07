@@ -9,7 +9,7 @@ The intro to the Great Expectations documentation provides us with 5 key compone
 2. Validation
    - Simply put this validates your data, and alerts which expectations passed or failed the suite of expectations. 
 3. Document
-   - Is a human readable report that provides a table of contents for all your expectations. Selecting individual expectations will render a continuously updated data quality report for a given batch of data. 
+   - This is a really awesome functionality, the suite of expectations are put inside a table of contents. You can click on each one and observe any statistics. It is a continuously updated quality report on your data. 
 4. Profiling 
    - Promotes reusability of data quality checks. Instead of having to re-write a suite of expectatons you have the choice to configure or re-use a suite of expectations on from a batch of data. A new feature is the option to produced a Rule based profiler that will allow you to configure a profiler via YAML file. 
 5. Checkpoint
