@@ -3,4 +3,4 @@ __pycache__/
 *.DS_Store
 .pycache_/
 .pytest_pycache
-
+*great-expectations-data*
