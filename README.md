@@ -15,3 +15,11 @@ The intro to the Great Expectations documentation provides us with 5 key compone
 5. Checkpoint
    - Not a checkpoint for the read me... (hah..hah..) This component actually produces validation results and can also be tuned to result in an optional task to be performed. Think of it almost like a try and except, you can catch the exception and direct the next level of operations. This can be used to send an automated email, slack, or customer notification to your team members. 
 
+# great expectations setup
+1. `pip install great_expectations` will do the trick. 
+2. `great_expectations init`
+   - this will initialize the projects and build out the directory structure and config files. 
+3. `great_expectations datasource new` 
+   - will creeate your first datasource. If you decided to get use clone the repo from the tutorial you should have the data directory available to you. If you build the image in this dockerfile you are the data directory is created for you. 
+   - simple select 1 for `file system data` when it prompts you, and `2` pyspark processing. 
+4. Once you finish a jupyter notebook will open up for you right away. 

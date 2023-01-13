@@ -17,7 +17,7 @@ def main():
     adidas_sales = adidas_transformations.transform_literal_types(adidas_sales, ['price_per_unit', 'units_sold', 
                                                                                 'total_sales', 'operating_profit', 
                                                                                 'operating_margin'])
-    adidas_sales = adidas_transformations.transform_datetime(adidas_sales)
+    adidas_sales = adidas_transformations.transform_datetime(spark, adidas_sales)
     adidas_sales.toPandas().to_csv('./data/adidas_us_retail_sales_data-converted.csv', index=False)
 
 if __name__ == '__main__':
