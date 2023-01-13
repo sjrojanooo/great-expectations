@@ -48,21 +48,22 @@ def min_max_and_datediff(spark: SparkSession, input_df: DataFrame) -> DataFrame:
 def sum_values_by_region(spark: SparkSession, retail_summary: DataFrame) -> DataFrame: 
     retail_summary.createOrReplaceTempView('tmp_df')
     retail_summary = spark.sql(f"""
-            WITH regions_sums as (
+            WITH regions_sums AS (
                 SELECT *, 
                 SUM(total_units_sold) OVER (PARTITIONED BY region) as total_units_sold_by_region, 
                 SUM(total_sales) OVER (PARTITIONED BY region) as total_sales_by_region, 
                 SUM(total_operating_profit) OVER (PARTITIONED BY region) as total_operating_profit_by_region
                 FROM tmp_df
             ),
-            final_summary(
+            final_summary (
                 SELECT
                 *,
                 Round(total_units_sold/total_units_sold_by_region) as percentage_of_total_units_sold_by_region,
                 Round(total_sales/total_sales_by_region) as percentage_of_total_sales_by_region,
                 Round(total_operating_profit_by_region/total_operating_profit_by_region) as percentage_of_total_operating_profit_by_region
-                FROM tmp_df
+                FROM regions_sums
             )
             SELECT * FROM final_summary
     """)
+    spark.catalog.dropTempView('tmp_df')
     return retail_summary
