@@ -7,15 +7,7 @@ RUN apt-get update && \
 RUN wget https://archive.apache.org/dist/spark/spark-3.0.1/spark-3.0.1-bin-hadoop3.2.tgz && \
     tar xvf spark-3.0.1-bin-hadoop3.2.tgz && \
     mv spark-3.0.1-bin-hadoop3.2/ /usr/local/spark && \
-    ln -s /usr/local/spark spark && \
-    wget https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/1.11.890/aws-java-sdk-bundle-1.11.890.jar && \
-    mv aws-java-sdk-bundle-1.11.890.jar /spark/jars && \
-    wget https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/3.2.0/hadoop-aws-3.2.0.jar && \
-    mv hadoop-aws-3.2.0.jar /spark/jars
-
-RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
-    unzip awscliv2.zip && \
-    ./aws/install
+    ln -s /usr/local/spark spark
 
 WORKDIR app
 COPY . /app
@@ -23,3 +15,5 @@ COPY . /app
 RUN pip3 install --upgrade pip && \
     pip3 install markupsafe==1.1.1 cryptography==3.3.2 cython==0.29.21 numpy==1.18.5 && \
     pip3 install -r requirements.txt
+
+ENV PYSPARK_PYTHON=python3
