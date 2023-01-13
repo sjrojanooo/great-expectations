@@ -12,13 +12,15 @@ def main():
     spark.sparkContext.setLogLevel("WARN")
 
     # commenting out transformed processes as this was just needed to provide testing data for great expectations tutorial
-    adidas_sales = spark.read.csv('./data/adidas_us_retail_sales_data-raw.csv', sep=',', header=True)
-    adidas_sales = adidas_transformations.transform_columns(adidas_sales)
-    adidas_sales = adidas_transformations.transform_literal_types(adidas_sales, ['price_per_unit', 'units_sold', 
-                                                                                'total_sales', 'operating_profit', 
-                                                                                'operating_margin'])
-    adidas_sales = adidas_transformations.transform_datetime(spark, adidas_sales)
-    adidas_sales.toPandas().to_csv('./data/adidas_us_retail_sales_data-converted.csv', index=False)
+    # feel free to comment out the code and run the spark submit command via docker cli
+    
+    # adidas_sales = spark.read.csv('./data/adidas_us_retail_sales_data-raw.csv', sep=',', header=True)
+    # adidas_sales = adidas_transformations.transform_columns(adidas_sales)
+    # adidas_sales = adidas_transformations.transform_literal_types(adidas_sales, ['price_per_unit', 'units_sold', 
+    #                                                                             'total_sales', 'operating_profit', 
+    #                                                                             'operating_margin'])
+    # adidas_sales = adidas_transformations.transform_datetime(spark, adidas_sales)
+    # adidas_sales.toPandas().to_csv('./data/adidas_us_retail_sales_data-converted.csv', index=False)
 
 if __name__ == '__main__':
     main()
