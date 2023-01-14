@@ -19,7 +19,20 @@ The intro to the Great Expectations documentation provides us with 5 key compone
 1. `pip install great_expectations` will do the trick. 
 2. `great_expectations init`
    - this will initialize the projects and build out the directory structure and config files. 
-3. `great_expectations datasource new` 
-   - will creeate your first datasource. If you decided to get use clone the repo from the tutorial you should have the data directory available to you. If you build the image in this dockerfile you are the data directory is created for you. 
-   - simple select 1 for `file system data` when it prompts you, and `2` pyspark processing. 
-4. Once you finish a jupyter notebook will open up for you right away. 
+
+##### Setting up the Data Source
+1. `great_expectations datasource new` 
+   * Super simple we hit this command and the cli prompts to a few selections
+      - Specify what data source we are connecting to 
+         * For now we are working on a file system. 
+      - What data processing framework are we planning to use? 
+         * In this project we are going to be using pyspark
+      - Enter the data path of the root directory
+         * `data`
+         * lucky for you I set this up just like the gxtutorial, only with different data.
+
+2. Jupyter Notebook -> Execute / Run all cells in the notebook. 
+   - PS. I did this and went to the next step in tutorial, but when I noticed my data, I realized that all of the columns were displaying as raw data without the actual columns. I decided to spend some time in the `RuntimeDataConnector`
+      * This gives use different configurational commands to external data stores, which in our case is our projects file system.
+      * But what does this mean? 
+         - It allows us to retrieve a batch of data by defining a data path within our project. Lets retrieve the batch of data inside the data directory. 
