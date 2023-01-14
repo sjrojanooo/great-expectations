@@ -20,7 +20,7 @@ def transform_datetime(spark: SparkSession, input_df: DataFrame) -> DataFrame:
     input_df.createOrReplaceTempView('tmp_df')
     list_o_columns = ','.join([column for column in input_df.columns if column != 'invoice_date'])
     output_df = spark.sql(f"""
-                        SELECT to_date(invoice_date, 'M/d/yyyy') as invoice_date, {list_o_columns}
+                        SELECT to_date(invoice_date, 'M/d/yy') as invoice_date, {list_o_columns}
                         FROM tmp_df;
                         """)
     spark.catalog.dropTempView('tmp_df')

@@ -24,7 +24,7 @@ def main():
     #                                                                             'total_sales', 'operating_profit', 
     #                                                                             'operating_margin'])
     # adidas_sales = adidas_transformations.transform_datetime(spark, adidas_sales)
-    # adidas_sales.toPandas().to_csv('./data/adidas_us_retail_sales_data-converted.csv')
+    # adidas_sales.toPandas().to_csv('./data/adidas_us_retail_sales_data-converted.csv', index=False)
 
 if __name__ == '__main__':
     main()

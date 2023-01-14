@@ -1,6 +1,6 @@
 {
   "data_asset_type": null,
-  "expectation_suite_name": "adidas_retail_expectation",
+  "expectation_suite_name": "adidas_test_suite",
   "expectations": [],
   "ge_cloud_id": null,
   "meta": {

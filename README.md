@@ -33,6 +33,9 @@ The intro to the Great Expectations documentation provides us with 5 key compone
 
 2. Jupyter Notebook -> Execute / Run all cells in the notebook. 
    - PS. I did this and went to the next step in tutorial, but when I noticed my data, I realized that all of the columns were displaying as raw data without the actual columns. I decided to spend some time in the `RuntimeDataConnector`
-      * This gives use different configurational commands to external data stores, which in our case is our projects file system.
-      * But what does this mean? 
-         - It allows us to retrieve a batch of data by defining a data path within our project. Lets retrieve the batch of data inside the data directory. 
+      * This gives use different configurational commands to external data stores, which in our case is our projects file system. We can use the `InferredAssetFilesystemDataConnector`, but I want to use a configurable `BatchRequest`.
+      * #### BatchRequest
+         - This contains all the necessary details to query query your data correctly. 
+         - It will interact with the Profiler, Checkpoint, and Validaor components mentioned above. 
+         - The tutorial set you up with a simple BatchRequest, thhat provides a base template for all the necessary parameters. 
+         
