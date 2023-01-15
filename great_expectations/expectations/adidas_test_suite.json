@@ -1,7 +1,34 @@
 {
   "data_asset_type": null,
   "expectation_suite_name": "adidas_test_suite",
-  "expectations": [],
+  "expectations": [
+    {
+      "expectation_type": "expect_table_columns_to_match_ordered_list",
+      "kwargs": {
+        "column_list": [
+          "invoice_date",
+          "retailer",
+          "retailer_id",
+          "region",
+          "state",
+          "city",
+          "product",
+          "price_per_unit",
+          "units_sold",
+          "total_sales",
+          "operating_profit",
+          "operating_margin",
+          "sales_method"
+        ]
+      },
+      "meta": {
+        "notes": {
+          "content": "columns must appear in this order",
+          "format": "markdown"
+        }
+      }
+    }
+  ],
   "ge_cloud_id": null,
   "meta": {
     "great_expectations_version": "0.15.43"
