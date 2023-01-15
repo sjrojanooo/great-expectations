@@ -27,6 +27,19 @@
           "format": "markdown"
         }
       }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "retailer_id",
+        "mostly": 1.0
+      },
+      "meta": {
+        "notes": {
+          "content": "We need all sales records to have a retailer id",
+          "format": "markdown"
+        }
+      }
     }
   ],
   "ge_cloud_id": null,
