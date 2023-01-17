@@ -162,8 +162,9 @@ class ExpectColumnMaxToBeBetweenCustom(ColumnExpectation):
 
         """
         We defined the range of values that should fall in the range of our strict min and max values in each column in our example. 
-        For column x we want the all values to be greater than 1,000,000 and less than 10,000,000 and that is true for this column. In 
-        contrast we see the opposite for column y. 
+        By setting the strict min and max values for each column we defined what range of values we want to look for in the data set. 
+        Our successful expectation is column x where, the range of values results in a positive test. Column why shows a the opposite 
+        and results in a negative test. 
         """
         if min_value is not None: 
             if strict_min: 
