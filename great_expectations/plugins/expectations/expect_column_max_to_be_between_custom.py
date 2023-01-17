@@ -21,6 +21,8 @@ from great_expectations.expectations.metrics import (
     column_aggregate_partial,
     column_aggregate_value,
 )
+
+"""This import provides access to all of spark functionalities without having PySpark installed"""
 from great_expectations.expectations.metrics.import_manager import F
 
 # This class defines a Metric to support your Expectation.
@@ -42,6 +44,9 @@ class ColumnCustomMax(ColumnAggregateMetricProvider):
     #     raise NotImplementedError
     #
     # This method defines the business logic for evaluating your Metric when using a SparkDFExecutionEngine
+    """
+    The aggregate partial decorator is specific to the spark executation engine. 
+    """
     @column_aggregate_partial(engine=SparkDFExecutionEngine)
     def _spark(cls, column, _table, _column_name, **kwargs):
         return F.max(column)
@@ -49,7 +54,7 @@ class ColumnCustomMax(ColumnAggregateMetricProvider):
 
 # This class defines the Expectation itself
 class ExpectColumnMaxToBeBetweenCustom(ColumnExpectation):
-    """TODO: We are expecting all sales to fall max range of 1,000,000 and 10,000,000 after performing aggregation"""
+    """TODO: Simple custom expectation that will expect columns values to fall between a custom range."""
 
     # These examples will be shown in the public gallery.
     # They will also be executed as unit tests for your Expectation.
